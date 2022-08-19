@@ -1,33 +1,37 @@
 .container{
+    position: absolute;
     display: flex;
-    margin-top: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     min-width: 50%;
-    width: calc((50em - 100%) * 1000);
-    border-radius: 20px;
-    height: 550px;
     max-width: 100%;
-    background-color: #F7A82F;
     text-align: center;
-    box-shadow: #6C6868 13px 13px;
     font-size: 16px;
     font-family: 'Inter', sans-serif;
 }
 
 .containerElements{
       flex-direction: column;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(254, 157, 10, 0.9);
+      box-shadow: 10px 10px rgba(0, 0, 0,0.6);
+      border-radius: 16px;
+      color: #27213B;
+      margin: 0 50px;
+      height: 500px;
 }
 
-article{
-    position: absolute;
-    margin: 0 50px;
-    color: #27213B;
-}
 .img{
     padding: 20px 40px 20px;
-    width: 45%;
+    width: 55%;
 }
 
 .btnEnter{
+    margin: 20px;
     width: 400px;
     height: 4em;
     background-color: #F13765;
@@ -38,6 +42,7 @@ article{
     font-weight: bold;
     font-size: 16px;
     font-family: 'Inter', sans-serif;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .btnEnter:hover{
