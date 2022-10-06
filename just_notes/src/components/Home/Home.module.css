@@ -17,7 +17,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(254, 157, 10, 0.9);
+    background: rgba(254, 157, 10, 0.8);
     box-shadow: 10px 10px rgba(0, 0, 0,0.6);
     border-radius: 16px;
     color: #27213B;
@@ -26,13 +26,13 @@
 }
 
 .img{
-    padding: 20px 40px 20px;
-    width: 55%;
+    padding: 30px 40px 20px;
+    width: 60%;
     -webkit-animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
- @-webkit-keyframes scale-in-hor-center {
+@-webkit-keyframes scale-in-hor-center {
     0% {
       -webkit-transform: scaleX(0);
               transform: scaleX(0);
@@ -43,25 +43,25 @@
               transform: scaleX(1);
       opacity: 1;
     }
-  }
-  @keyframes scale-in-hor-center {
-    0% {
-      -webkit-transform: scaleX(0);
-              transform: scaleX(0);
-      opacity: 1;
-    }
-    100% {
-      -webkit-transform: scaleX(1);
-              transform: scaleX(1);
-      opacity: 1;
-    }
-  }
+}
 
+@keyframes scale-in-hor-center {
+    0% {
+      -webkit-transform: scaleX(0);
+              transform: scaleX(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scaleX(1);
+              transform: scaleX(1);
+      opacity: 1;
+    }
+}
   
 .btnEnter{
-    margin: 20px;
-    width: 400px;
-    height: 4em;
+    margin: 25px;
+    width: 350px;
+    height: 3em;
     background-color: #F13765;
     color: #27213B;
     border-radius: 10px;
@@ -69,7 +69,7 @@
     border-color: #27213B;
     font-size: 16px;
     font-family: 'Inter', sans-serif;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.4)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.4));
 }
 
 .btnEnter:hover{

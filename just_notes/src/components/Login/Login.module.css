@@ -1,0 +1,68 @@
+.container{
+    position: absolute;
+    display: flex;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 50%;
+    max-width: 100%;
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+}
+
+.containerElements{
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(254, 157, 10, 0.8);
+    box-shadow: 10px 10px rgba(0, 0, 0,0.6);
+    border-radius: 16px;
+    color: #27213B;
+    margin: 0 50px;
+    height: 500px;
+}
+
+.input{
+    width: 12em;
+    height: 1.7em;
+    border-radius: 10px;
+    border-width:1px;
+    border-color: #000;
+    margin: 10px;
+    box-shadow: 3px 3px 5px #000;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+}
+
+.infoForgotOrRegisterEmail{
+    margin: 20px;
+    font-size: 15px;
+}
+
+.aForgotRegister{
+    color: #27213B;
+    font-weight: bold;
+}
+
+.infoPassword{
+    margin-left: 53px;
+    margin-bottom: 10px;
+}
+
+.spanInfo{
+    margin:5px;
+}
+
+.containerLogosGmailFacebook img{
+    padding: 20px 40px 20px;
+    width: 70px;
+    cursor:pointer;
+    margin-top: -5px;
+}
+
+.containerLogosGmailFacebook img:hover{
+    filter: saturate(180%);
+}

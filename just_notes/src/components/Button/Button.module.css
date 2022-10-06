@@ -1,0 +1,21 @@
+.divBtnLogin{
+    margin-top: 15px;
+    width: 400px;
+}
+
+.btnLogin{
+    width: 330px;
+    height: 3em;
+    background-color: #F13765;
+    border-radius: 10px;
+    color: #fff;
+    border-width:1px;
+    border-color: #000;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    cursor:pointer;
+}
+
+.btnLogin:hover{
+    filter:saturate(180%);
+}
