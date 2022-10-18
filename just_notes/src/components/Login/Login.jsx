@@ -1,6 +1,7 @@
 import { useNavigate, Link} from 'react-router-dom';
 import { Header } from '../Header/Header';
 import { Button } from '../Button/Button';
+import { signInGoogle, signInFacebook } from '../../firebase/auth';
 import styles from './Login.module.css';
 
 export function Login () {
@@ -34,8 +35,8 @@ export function Login () {
         O conéctate con:<br/>
         </p>
         <div className={styles.containerLogosGmailFacebook}>
-        <img className={styles.img} src={require('../../img/gmail.png')} alt='Ingresa con Gmail'/>
-        <img className={styles.img} src={require('../../img/facebook.png')} alt='Ingresa con Facebook'/>
+        <img className={styles.img} src={require('../../img/gmail.png')} alt='Ingresa con Gmail' onClick={signInGoogle}/>
+        <img className={styles.img} src={require('../../img/facebook.png')} alt='Ingresa con Facebook' onClick={signInFacebook}/>
         </div>
         </div>
         </form>
