@@ -25,7 +25,7 @@ export function Register () {
         <div className={styles.repeatPassword}>
         <label>Confirma contraseña</label><input type='password' id='passwordr' className={styles.input}/><br/>
         </div>
-        <Button />
+        <Button text="Registrarse"/>
         </form>
         <p className={styles.pClick}> <a href='#' className={styles.aLogin} onclick={login()}>Clickea aquí para regresar a loguearte</a></p>
         </div>

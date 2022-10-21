@@ -17,7 +17,7 @@ export function Forgot () {
         <div className={styles.infoEmail}>
         <label>Correo electrónico</label><input type='text' id='email' className={styles.input} /><br/>
         </div>
-        <Button />
+        <Button text="Enviar"/>
         </form>
         <p className={styles.pClick}> <a href='#' className={styles.aLogin} onclick={login()}>Clickea aquí para regresar a loguearte</a></p>
         </div>

@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { Button } from '../Button/Button';
 import styles from './Home.module.css';
 
 export function Home () {
@@ -12,7 +13,8 @@ export function Home () {
         <img className={styles.img} src={require('../../img/logo.png')}/> <br />
         ¿Olvidaste alguna fecha importante? <br/>
         No te preocupes que esta aplicación <br /> te ayudará a guardar tus eventos o <br /> citas más importantes. <br/>
-        <button className={styles.btnEnter} onClick={login}>Ingresa a tu cuenta</button>
+        <Button text="Ingresa a tu cuenta" click={login}/>
+        {/* <button className={styles.btnEnter}  >Ingresa a tu cuenta</button> */}
         </article>
         </section>
     )
