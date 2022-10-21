@@ -17,7 +17,7 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
 
 const login = (email, password) => signInWithEmailAndPassword(auth, email, password);
-
+const register = (email, password) => createUserWithEmailAndPassword (auth, email, password);
 
 const signInGoogle = () => {
     const provider = new GoogleAuthProvider();
@@ -57,7 +57,7 @@ useEffect(() => {
 
 return (
   <authContext.Provider
-    value={{login, user, signInGoogle, signInFacebook, logOut }}>
+    value={{login, register, user, signInGoogle, signInFacebook, logOut }}>
     {children}
   </authContext.Provider>
 );
