@@ -23,7 +23,7 @@ export function Forgot () {
            alert('Correo electrónico enviado, veríficalo')
         }
         catch(err){
-                alert('Correo electrónico no registrado', error)
+           alert('Correo electrónico no registrado', error)
         }
     }
     return (

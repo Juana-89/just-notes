@@ -3,58 +3,64 @@ import { createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     GoogleAuthProvider, sendPasswordResetEmail,
     FacebookAuthProvider, signInWithPopup,
-    onAuthStateChanged, signOut } from "firebase/auth";
+    onAuthStateChanged, updateProfile, signOut } from "firebase/auth";
 import { auth } from "../firebase/config";
 
 const authContext = createContext();
 
 export const useAuth = () => {
   const context = useContext(authContext);
-  if (!context) throw new Error("There is no Auth provider");
+  if (!context) throw new Error('No hay proveedor de autenticación');
   return context;
 };
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
 
-const login = (email, password) => signInWithEmailAndPassword(auth, email, password);
-const register = (email, password) => createUserWithEmailAndPassword (auth, email, password);
-const forgot = (email) => sendPasswordResetEmail(auth, email);
+  const login = (email, password) => signInWithEmailAndPassword(auth, email, password);
+  const forgot = (email) => sendPasswordResetEmail(auth, email);
+  const register = (email, password, userName) => 
+  createUserWithEmailAndPassword (auth, email, password)
+  .then((credential) => {
+    const user = credential.user;
+    updateProfile(user, {userName})
+  });
+  
+  const signInGoogle = () => {
+      const provider = new GoogleAuthProvider();
+      return signInWithPopup(auth, provider)
+      .then((result) => { 
+        console.log(result)
+        }).catch((error) => {
+          console.log(error)
+        })
+  };
 
-const signInGoogle = () => {
-    const provider = new GoogleAuthProvider();
-    return signInWithPopup(auth, provider)
-    .then((result) => { 
-       console.log(result)
-      }).catch((error) => {
-        console.log(error)
-      });
-}
-
-const signInFacebook = () => {
-    const provider = new FacebookAuthProvider();
-    return signInWithPopup(auth, provider)
-    .then((result) => { 
-       console.log(result)
-      }).catch((error) => {
-        console.log(error)
-      });
-}
- const logOut = () => signOut(auth)
-    .then(() => {
-        console.log('Saliste de la sesión')
-      }).catch((error) => {
-        console.log(error)
-      });
+  const signInFacebook = () => {
+      const provider = new FacebookAuthProvider();
+      return signInWithPopup(auth, provider)
+      .then((result) => { 
+        console.log(result)
+        }).catch((error) => {
+          console.log(error)
+        })
+  };
+  
+  const logOut = () => signOut(auth)
+      .then(() => {
+          console.log('Saliste de la sesión')
+        }).catch((error) => {
+          console.log(error)
+        });
       
 
 useEffect(() => {
-  const unsubuscribe = onAuthStateChanged(auth, (currentUser) => {
+  const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
     console.log({ currentUser });
     setUser(currentUser);
   
   });
-  return () => unsubuscribe();
+  return () => unsubscribe();
 }, []);
 
 return (
