@@ -37,7 +37,7 @@ export function Login () {
         catch(error){
             switch(error.message){
                 case '':
-                    setError('No puedes dejar campos vacíos. Ingresa email y contraseña')
+                    alert('No puedes dejar campos vacíos. Ingresa email y contraseña')
                     break;
                     case 'auth/user-not-found':
                         setError('Usuario no registrado');
@@ -46,10 +46,10 @@ export function Login () {
                         setError('Contraseña incorrecta. Intente nuevamente');
                         break;
                     case 'auth/invalid-email':
-                        setError('Ingrese un correo válido');
+                        setError('Ingresa un correo válido');
                         break;
                     case 'auth/internal-error':
-                        setError('Ingrese su contraseña');
+                        setError('Ingresa su contraseña');
                         break;
                     default:
                         setError(error.message);
