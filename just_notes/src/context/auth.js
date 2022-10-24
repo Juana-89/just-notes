@@ -3,7 +3,7 @@ import { createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     GoogleAuthProvider, sendPasswordResetEmail,
     FacebookAuthProvider, signInWithPopup,
-    onAuthStateChanged, updateProfile, signOut } from "firebase/auth";
+    onAuthStateChanged, signOut } from "firebase/auth";
 import { collection } from "firebase/firestore";
 import { auth, db } from "../firebase/config";
 
@@ -19,9 +19,8 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
 
   const login = (email, password) => signInWithEmailAndPassword(auth, email, password);
-  const forgot = (email) => sendPasswordResetEmail(auth, email);
-  const register = (email, password) => 
-  createUserWithEmailAndPassword (auth, email, password)
+  const forgot = (email) => {auth.languageCode='es'; return sendPasswordResetEmail(auth, email)};
+  const register = (email, password) => createUserWithEmailAndPassword (auth, email, password)
   
   const signInGoogle = () => {
       const provider = new GoogleAuthProvider();
