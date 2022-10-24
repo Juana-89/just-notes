@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Header } from '../Header/Header';
-import { Button } from '../Button/Button';
+import { Header } from '../../components/Header/Header';
+import { Button } from '../../components/Button/Button';
 import { useAuth } from '../../context/auth';
 import styles from './Forgot.module.css';
 

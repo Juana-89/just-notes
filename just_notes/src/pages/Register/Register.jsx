@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Header } from '../Header/Header';
-import { Button } from '../Button/Button';
+import { Header } from '../../components/Header/Header';
+import { Button } from '../../components/Button/Button';
 import { useAuth } from '../../context/auth';
 import styles from './Register.module.css';
 
@@ -10,7 +10,6 @@ export function Register () {
     const { register } = useAuth();
     const [error, setError] = useState('');
     const [user, setUser] = useState({
-  
         email:'',
         password:'',
     });
@@ -46,20 +45,15 @@ export function Register () {
                 }
             }
         }
-   //este componente aun falta por terminar
-        // useEffect(() => {
-        //     if (user) {
-        //       navigate('/home');
-        //     }
-        // },[user, navigate])
+
     return (
         <div className={styles.container}>
         <div className={styles.containerElements}>
         <Header />
         <form className={styles.form}>
         <div className={styles.infoUser}>
-        <label>Usuario</label><input type='text'  
-        className={styles.input} onChange={handleChange}  /><br/>
+        <label>Usuario</label><input type='text'
+        className={styles.input}  /><br/>
         </div>
         <div className={styles.infoEmail}>
         <label>Correo electrónico</label><input type='email' name='email'
