@@ -10,7 +10,7 @@ export function Register () {
     const { register } = useAuth();
     const [error, setError] = useState('');
     const [user, setUser] = useState({
-        userName:'',
+  
         email:'',
         password:'',
     });
@@ -24,7 +24,7 @@ export function Register () {
             e.preventDefault();
             setError('')
             try{
-               await register(user.userName, user.email, user.password)
+               await register( user.email, user.password)
                alert('te registraste con éxito')
             }
             catch(error){
@@ -46,7 +46,7 @@ export function Register () {
                 }
             }
         }
-   
+   //este componente aun falta por terminar
         // useEffect(() => {
         //     if (user) {
         //       navigate('/home');
@@ -56,22 +56,22 @@ export function Register () {
         <div className={styles.container}>
         <div className={styles.containerElements}>
         <Header />
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <form className={styles.form}>
         <div className={styles.infoUser}>
-        <label>Usuario</label><input type='text' name='userName' 
+        <label>Usuario</label><input type='text'  
         className={styles.input} onChange={handleChange}  /><br/>
         </div>
         <div className={styles.infoEmail}>
         <label>Correo electrónico</label><input type='email' name='email'
-        className={styles.input}   /><br/>
+        className={styles.input} onChange={handleChange}  /><br/>
         </div>
         <div className={styles.infoPassword}>
         <label>Contraseña</label><input type='password' name='password'
-        className={styles.input}  onChange={handleChange} /><br/>
+        className={styles.input} onChange={handleChange} /><br/>
         </div>
         <div className={styles.repeatPassword}>
         <label>Confirma contraseña</label><input type='password' name='passwordr'
-         className={styles.input} onChange={handleChange} /><br/>
+         className={styles.input} /><br/>
         </div>
         <Button text="Registrarse" click={handleSubmit}/>
         </form>

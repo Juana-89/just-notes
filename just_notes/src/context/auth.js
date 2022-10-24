@@ -4,7 +4,8 @@ import { createUserWithEmailAndPassword,
     GoogleAuthProvider, sendPasswordResetEmail,
     FacebookAuthProvider, signInWithPopup,
     onAuthStateChanged, updateProfile, signOut } from "firebase/auth";
-import { auth } from "../firebase/config";
+import { collection } from "firebase/firestore";
+import { auth, db } from "../firebase/config";
 
 const authContext = createContext();
 
@@ -19,12 +20,8 @@ export function AuthProvider({ children }) {
 
   const login = (email, password) => signInWithEmailAndPassword(auth, email, password);
   const forgot = (email) => sendPasswordResetEmail(auth, email);
-  const register = (email, password, userName) => 
+  const register = (email, password) => 
   createUserWithEmailAndPassword (auth, email, password)
-  .then((credential) => {
-    const user = credential.user;
-    updateProfile(user, {userName})
-  });
   
   const signInGoogle = () => {
       const provider = new GoogleAuthProvider();
