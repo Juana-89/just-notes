@@ -10,6 +10,7 @@ export function Register () {
     const { register } = useAuth();
     const [error, setError] = useState('');
     const [user, setUser] = useState({
+        displayName:'',
         email:'',
         password:'',
     });
@@ -23,7 +24,7 @@ export function Register () {
             e.preventDefault();
             setError('')
             try{
-               await register( user.email, user.password)
+               await register( user.displayName, user.email, user.password)
                alert('te registraste con éxito')
             }
             catch(error){
@@ -52,7 +53,7 @@ export function Register () {
         <Header />
         <form className={styles.form}>
         <div className={styles.infoUser}>
-        <label>Usuario</label><input type='text'
+        <label>Usuario</label><input type='text' name='displayName'
         className={styles.input}  /><br/>
         </div>
         <div className={styles.infoEmail}>
