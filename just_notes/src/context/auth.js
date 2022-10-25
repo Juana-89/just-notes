@@ -26,11 +26,12 @@ export function AuthProvider({ children }) {
     const user = userCredentials.user;
     user.updateProfile({
       displayName: displayName
-    }).then((e) => {
-      console.log('registrado')
-    }).catch((error) => {
-      alert(error.message);
-  })
+    })
+  //   .then((e) => {
+  //     alert('registrado')
+  //   }).catch((error) => {
+  //     alert(error.message);
+  // })
   })
   const signInGoogle = () => {
       const provider = new GoogleAuthProvider();
