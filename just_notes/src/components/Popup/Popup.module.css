@@ -1,11 +1,11 @@
 
 .closeModal{
     position: fixed;
-    top: 7%;
-    left: 90.5%;
+    top: 10.5%;
+    left: 92%;
     transform: translate(-50%, -50%);
     z-index: -1;
-    padding: 12px 24px;
+    padding: 12px 20px;
 }
 
 .overlay{
@@ -19,16 +19,24 @@
 .modalContainer{
   max-width: 90%;
   max-height: 90%;
-  padding: 150px;
-  width: max-content;
-  height: max-content;
+
+  width: 320px;
+  height: 200px;
+  /* height: max-content; */
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: block;
-  background-color: #f009;
+  background-color: rgba(81, 0, 255, 0.608);
   box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
   border-radius: 8px;
   position: relative;
+}
+.spanTitle{
+  /* background: rgba(255, 4, 0, 0.608); */
+  font-weight: bold;
+  color: #fff;
+
+  /* width: max-content; */
 }

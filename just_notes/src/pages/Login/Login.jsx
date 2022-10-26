@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Header } from '../../components/Header/Header';
 import { Button } from '../../components/Button/Button';
 import { useAuth } from '../../context/auth';
+import { Popup } from '../../components/Popup/Popup';
 import styles from './Login.module.css';
 
 export function Login () {
@@ -71,6 +72,7 @@ export function Login () {
          name='password' onChange={handleChange} className={styles.input}/><br/>
         </div>
         <Button text="Ingresar" click={handleSubmit}/>
+        {error && <Popup content={error}></Popup>}
         <div className={styles.infoForgotOrRegisterEmail}>
         <p className={styles.spanInfo}>
         ¿Te olvidaste de tu cuenta? <a href='/forgot' className={styles.aForgotRegister} > Ingresa aquí</a><br/>
@@ -87,6 +89,7 @@ export function Login () {
         </div>
         </div>
         </form>
+
         </div>
         </div>
     )
