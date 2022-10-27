@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Header } from '../../components/Header/Header';
 import { Button } from '../../components/Button/Button';
+import { Popup } from '../../components/Popup/Popup';
 import { useAuth } from '../../context/auth';
 import styles from './Forgot.module.css';
 
@@ -27,6 +28,7 @@ export function Forgot () {
         }
     }
     return (
+        <>
         <div className={styles.container}>
         <div className={styles.containerElements}>
         <Header />
@@ -41,5 +43,6 @@ export function Forgot () {
         <p className={styles.pClick}> <a href='#' className={styles.aLogin} onClick={login()}>Clickea aquí para regresar a loguearte</a></p>
         </div>
         </div>
+        {error && <Popup content={error}></Popup>}</>
     )
 }
