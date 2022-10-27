@@ -59,6 +59,7 @@ export function Login () {
     }
 
     return (
+      <>
         <div className={styles.container}>
         <div className={styles.containerElements}>
         <Header />
@@ -72,7 +73,6 @@ export function Login () {
          name='password' onChange={handleChange} className={styles.input}/><br/>
         </div>
         <Button text="Ingresar" click={handleSubmit}/>
-        {error && <Popup content={error}></Popup>}
         <div className={styles.infoForgotOrRegisterEmail}>
         <p className={styles.spanInfo}>
         ¿Te olvidaste de tu cuenta? <a href='/forgot' className={styles.aForgotRegister} > Ingresa aquí</a><br/>
@@ -89,8 +89,9 @@ export function Login () {
         </div>
         </div>
         </form>
-
         </div>
+        
         </div>
+       {error && <Popup content={error}></Popup>}</>
     )
 }
