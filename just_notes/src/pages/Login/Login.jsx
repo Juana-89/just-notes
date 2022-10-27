@@ -59,7 +59,7 @@ export function Login () {
     }
 
     return (
-      <>
+        <>
         <div className={styles.container}>
         <div className={styles.containerElements}>
         <Header />
@@ -90,7 +90,6 @@ export function Login () {
         </div>
         </form>
         </div>
-        
         </div>
        {error && <Popup content={error}></Popup>}</>
     )

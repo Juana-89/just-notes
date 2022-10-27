@@ -8,6 +8,7 @@
     padding: 8px 15px;
     border-radius: 8px 8px;
     border:none;
+    cursor: pointer;
 }
 
 .overlay{
@@ -24,29 +25,46 @@
   z-index: 1;
   width: 320px;
   height: 200px;
-  /* height: max-content; */
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: block;
-  background-color: rgba(81, 0, 255, 0.608);
+  background-color: rgb(247, 244, 255);
   box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
   border-radius: 8px;
   position: relative;
 }
 .spanTitle{
-  background: rgba(255, 4, 0, 0.608);
+  background:  #27213B;;
   display: flex;
   justify-content: space-between;
   padding: 15px 30px 5px 15px;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid #27213B;
   font-weight: bold;
   color: #fff;
   border-radius: 8px 8px 0 0;
+
   /* width: max-content; */
 }
 
 .content{
+  color: #27213B;
+  margin: 20px;
+}
+
+.accept {
+  min-width: 130px;
+  height: 40px;
   color: #fff;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  border: none;
+  background: #3d348b;
+  box-shadow: 0 5px #2c0b8e;
+  margin: 20px 80px;
+  cursor: pointer;
 }
