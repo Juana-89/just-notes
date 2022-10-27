@@ -30,16 +30,16 @@ export function Register () {
             }
             catch(error){
                 switch(error.message){
-                    case '':
-                        setError('No puedes dejar campos vacíos. Ingresa un nombre de usuario, email y contraseña')
+                    case 'Firebase: Error (auth/internal-error).':
+                        setError('No puedes dejar campos vacíos. Ingresa un usuario, email y contraseña')
                         break;
-                    case 'auth/email-already-in-use':
+                    case 'Firebase: Error (auth/email-already-in-use).':
                         setError('El correo ingresado ya está en uso');
                         break;
-                    case 'auth/weak-password': 
+                    case 'Firebase: Error (auth/weak-password).': 
                         setError('La contraseña ingresada debe de tener más de 6 caracteres entre números y letras');
                         break;
-                    case 'auth/invalid-email':
+                    case 'Firebase: Error (auth/invalid-email).':
                         setError('Ingresa un correo válido');
                         break;
                     default:

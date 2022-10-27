@@ -38,22 +38,22 @@ export function Login () {
         catch(error){
             switch(error.message){
                 case '':
-                    alert('No puedes dejar campos vacíos. Ingresa email y contraseña')
+                    setError('No puedes dejar campos vacíos. Ingresa email y contraseña')
                     break;
-                    case 'auth/user-not-found':
-                        setError('Usuario no registrado');
-                        break;
-                    case 'auth/wrong-password':
-                        setError('Contraseña incorrecta. Intente nuevamente');
-                        break;
-                    case 'auth/invalid-email':
-                        setError('Ingresa un correo válido');
-                        break;
-                    case 'auth/internal-error':
-                        setError('Ingresa su contraseña');
-                        break;
-                    default:
-                        setError(error.message);
+                case 'Firebase: Error (auth/user-not-found).':
+                    setError('Usuario no registrado');
+                    break;
+                case 'Firebase: Error (auth/wrong-password).':
+                    setError('Contraseña incorrecta. Intente nuevamente');
+                    break;
+                case 'Firebase: Error (auth/invalid-email).':
+                    setError('Ingresa un correo válido');
+                    break;
+                case 'Firebase: Error (auth/internal-error).':
+                    setError('Ingresa su contraseña');
+                    break;
+                default:
+                    setError(error.message);
             }
         }
     }

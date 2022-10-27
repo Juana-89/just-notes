@@ -23,10 +23,19 @@ export function Forgot () {
            await forgot(emailRef.current.value)
            alert('Correo electrónico enviado, veríficalo')
         }
-        catch(err){
-           alert('Correo electrónico no registrado', error)
+        catch(error){
+            switch(error.message){
+                case 'Firebase: Error (auth/missing-email).':
+                    setError('No puedes dejar este campo vacío. Ingresa el email registrado')
+                    break;
+                case 'Firebase: Error (auth/user-not-found).':
+                    setError('El email ingresado no está registrado');
+                    break;
+               default:
+                   setError(error.message);
         }
     }
+}
     return (
         <>
         <div className={styles.container}>
@@ -40,7 +49,7 @@ export function Forgot () {
         </div>
         <Button text="Enviar" click={handleSubmit}/>
         </form>
-        <p className={styles.pClick}> <a href='#' className={styles.aLogin} onClick={login()}>Clickea aquí para regresar a loguearte</a></p>
+        <p className={styles.pClick}> <a href='#' className={styles.aLogin} onClick={login}>Clickea aquí para regresar a loguearte</a></p>
         </div>
         </div>
         {error && <Popup content={error}></Popup>}</>
