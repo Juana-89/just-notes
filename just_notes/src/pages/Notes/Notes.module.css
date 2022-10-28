@@ -1,0 +1,25 @@
+.container{
+    position: absolute;
+    display: flex;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 50%;
+    max-width: 100%;
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+}
+
+.containerElements{
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(254, 157, 10, 0.8);
+    box-shadow: 10px 10px rgba(0, 0, 0,0.6);
+    border-radius: 16px;
+    color: #27213B;
+    height: 500px;
+}

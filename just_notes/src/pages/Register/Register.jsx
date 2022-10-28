@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Header } from '../../components/Header/Header';
-import { Button } from '../../components/Button/Button';
+import { Button } from '../../components/ButtonsMain/Button';
 import { Popup } from '../../components/Popup/Popup';
 import { useAuth } from '../../context/auth';
 import styles from './Register.module.css';
