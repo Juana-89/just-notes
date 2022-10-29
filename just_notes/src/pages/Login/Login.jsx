@@ -34,6 +34,7 @@ export function Login () {
         try{
            await login(user.email, user.password)
            alert('ingresaste con éxito')
+           navigate('/notes')
         }
         catch(error){
             switch(error.message){

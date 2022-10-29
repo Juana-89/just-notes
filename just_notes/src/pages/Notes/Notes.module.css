@@ -4,7 +4,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    min-width: 50%;
+    min-width: 60%;
     max-width: 100%;
     text-align: center;
     font-size: 16px;
@@ -22,4 +22,26 @@
     border-radius: 16px;
     color: #27213B;
     height: 500px;
+}
+
+.header{
+    float: left;
+    width: 90%;
+    margin-left: -12%;
+}
+
+.logout{
+    float: right;
+    margin: 40px -80px auto 0px;
+}
+
+.title{
+    margin: 0 20px;
+}
+
+.form{
+    margin: 10px;
+}
+.note{
+    width: 12em;
 }
