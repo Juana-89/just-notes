@@ -20,13 +20,13 @@ export function Login () {
     
     const onSignInGoogle = async () => {
             await signInGoogle()
-            console.log('logueada con google')
-    };
+            console.log('logueada con google');
+    }
 
     const onSignInFacebook = async () => {
             await signInFacebook()
-            console.log('logueada con facebook')
-    };
+            console.log('logueada con facebook');
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -67,7 +67,8 @@ export function Login () {
         <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.infoEmail} htmlFor="email">
         <label>Correo electrónico</label><input type='email' id='email'
-        name='email' onChange={handleChange} className={styles.input} /><br/>
+        name='email' onChange={handleChange} className={styles.input}
+        autoComplete='off' /><br/>
         </div>
         <div className={styles.infoPassword} htmlFor="password">
         <label>Contraseña</label><input type='password' id='password' 
