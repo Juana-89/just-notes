@@ -1,0 +1,11 @@
+#btns{
+    background: #F13765;
+    font-family: 'Inter';
+    color: #FFFFFF;
+    border-radius: 8px;
+    border: 1px solid #000;
+    width: 148px;
+    height: 32px;
+    margin: 15px;
+    cursor: pointer;
+}
