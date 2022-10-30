@@ -1,17 +1,24 @@
+import { useState, useRef } from 'react';
 import { Header } from '../../components/Header/Header';
 import { ButtonLogOut } from '../../components/ButtonLogOut/LogOut';
 import ButtonsSaveAndDelete from '../../components/ButtonSaveDelete/SaveDelete';
 import styles from './Notes.module.css';
 
+
 export function Notes () {
+    const inputRef = useRef(null);
+
     const saveFunction = (e) => {
         e.preventDefault();
-        alert('Dar comida a los gatos')
+        alert('Dar comida a los gatos');
     }
+
+
     const deleteFunction = (e) => {
         e.preventDefault();
-        alert('Dar comida a los gatos1')
-    }
+        inputRef.current.value= ''
+       
+    };
 
     return (
     <div className={styles.container}>
@@ -25,7 +32,8 @@ export function Notes () {
         </div>
         <p className={styles.title}>Agregar nota:</p>
         <form className={styles.form}>
-            <textarea className={styles.note}></textarea>
+            <textarea ref={inputRef} className={styles.note}
+            name='note' ></textarea>
             <ButtonsSaveAndDelete
             text='Guardar'
             classBtn={true}
