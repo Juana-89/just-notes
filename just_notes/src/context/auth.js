@@ -55,9 +55,9 @@ export function AuthProvider({ children }) {
   
   const logOut = () => signOut(auth)
       .then(() => {
-          alert('Saliste de la sesión')
+          console.log('Saliste de la sesión')
         }).catch((error) => {
-          alert(error)
+          console.log(error)
         });
       
 
