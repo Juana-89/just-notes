@@ -2,7 +2,7 @@ import styles from './SaveDelete.module.css';
 
 function ButtonsSaveAndDelete ({text, classBtn, click}) {
     return (
-        <button className={classBtn ? 'btnSave' : 'btnDelete'}
+        <button id={styles.btns} className={classBtn ? 'btnSave' : 'btnDelete'}
         onClick={click}>{text}</button>
     )
 }
