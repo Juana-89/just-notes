@@ -1,25 +1,17 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { Header } from '../../components/Header/Header';
 import { ButtonLogOut } from '../../components/ButtonLogOut/LogOut';
-import ButtonsSaveAndDelete from '../../components/ButtonSaveDelete/SaveDelete';
+import { AddNotes } from '../../components/AddNotes/AddNotes'
 import styles from './Notes.module.css';
 
 
-export function Notes () {
-    const inputRef = useRef(null);
+export function Notes (props) {
+    const [notes, setNotes] = useState([]);
+    const [statedNote, setStateNote] = useState(false);
+    const [error, setError] = useState('');
+    const [searchNotes, setSearchNotes] = useState([]);
 
-    const saveFunction = (e) => {
-        e.preventDefault();
-        alert('Dar comida a los gatos');
-    }
-
-
-    const deleteFunction = (e) => {
-        e.preventDefault();
-        inputRef.current.value= ''
-       
-    };
-
+    let userId = props.currentUser;
     return (
     <div className={styles.container}>
     <div className={styles.containerElements}>
@@ -31,21 +23,14 @@ export function Notes () {
         </div>
         </div>
         <p className={styles.title}>Agregar nota:</p>
-        <form className={styles.form}>
-            <textarea ref={inputRef} className={styles.note}
-            name='note' ></textarea>
-            <ButtonsSaveAndDelete
-            text='Guardar'
-            classBtn={true}
-            click={saveFunction}>
-            </ButtonsSaveAndDelete>
-
-            <ButtonsSaveAndDelete
-            text='Borrar'
-            classBtn={false}
-            click={deleteFunction}>
-            </ButtonsSaveAndDelete>
-            </form>
+       
+        <AddNotes 
+          notes={notes} 
+          setNotes={setNotes} 
+          setStateNote={setStateNote} 
+          setSearchNotes={setSearchNotes}
+        />
+    
     </div>
    
     </div>
