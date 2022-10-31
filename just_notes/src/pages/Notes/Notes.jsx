@@ -7,7 +7,7 @@ import styles from './Notes.module.css';
 
 export function Notes (props) {
     const [notes, setNotes] = useState([]);
-    const [statedNote, setStateNote] = useState(false);
+    const [stateNote, setStateNote] = useState(false);
     const [error, setError] = useState('');
     const [searchNotes, setSearchNotes] = useState([]);
 
