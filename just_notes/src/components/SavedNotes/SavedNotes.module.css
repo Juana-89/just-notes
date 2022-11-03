@@ -4,6 +4,7 @@
     width: 143px;
     height: 88px;
     border-radius: 8px;
+    border: 1px solid #000000;
 }
 
 .footerNotes{
@@ -21,4 +22,5 @@
 
 .spanIcos{
     float: right;
+    color: #000000
 }
