@@ -30,9 +30,7 @@ export function Notes (props) {
           setStateNote={setStateNote} 
           setSearchNotes={setSearchNotes}
         />
-    
     </div>
-   
     </div>
     
     )
