@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Header } from '../../components/Header/Header';
 import { ButtonLogOut } from '../../components/ButtonLogOut/LogOut';
-import { AddNotes } from '../../components/AddNotes/AddNotes'
+import { AddNotes } from '../../components/AddNotes/AddNotes';
+import { SavedNotes } from '../../components/SavedNotes/SavedNotes';
 import styles from './Notes.module.css';
 
 
@@ -13,7 +14,7 @@ export function Notes (props) {
 
     let userId = props.currentUser;
     return (
-    <div className={styles.container}>
+    <main className={styles.container}>
     <div className={styles.containerElements}>
         <div className={styles.header}>
         <Header />
@@ -23,15 +24,18 @@ export function Notes (props) {
         </div>
         </div>
         <p className={styles.title}>Agregar nota:</p>
-       
         <AddNotes 
           notes={notes} 
           setNotes={setNotes} 
           setStateNote={setStateNote} 
           setSearchNotes={setSearchNotes}
         />
+       <p className={styles.title}>Notas guardadas:</p>
+       <div className={styles.viewNotes}>
+       <SavedNotes/>
+       </div>
     </div>
-    </div>
+    </main>
     
     )
 }

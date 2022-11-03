@@ -36,10 +36,15 @@
 }
 
 .title{
-    margin: -10px 33px 2px;
+    margin: 2px 33px 2px;
     float: left;
     color: #000000;
     font-family: 'Inter';
+}
+
+.viewNotes{
+    margin: 25px 30px;
+   
 }
 
 /* .form{
