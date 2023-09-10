@@ -8,9 +8,10 @@ import styles from './Login.module.css';
 
 export function Login () {
     const navigate = useNavigate();
-    const [error, setError] = useState('');
+    const [ error, setError ] = useState('');
+    const [ success, setSuccess ] = useState('');
     const { login, signInGoogle, signInFacebook } = useAuth();
-    const [user, setUser] = useState({
+    const [ user, setUser ] = useState({
         email:'',
         password:'',
     });
@@ -32,8 +33,11 @@ export function Login () {
         e.preventDefault();
         setError('')
         try{
-           await login(user.email, user.password)
-           alert('ingresaste con éxito')
+            setSuccess(user.email + " " + 'Ingresaste con éxito')
+           setTimeout(() => {
+            setSuccess(null);
+          }, 3000);
+          await login(user.email, user.password)
            navigate('/notes')
         }
         catch(error){
@@ -93,6 +97,7 @@ export function Login () {
         </form>
         </div>
         </div>
-       {error && <Popup content={error}></Popup>}</>
+       {error && <Popup content={error}></Popup>}
+       {success && <Popup content={success} onClose={() => setSuccess('')}></Popup>}</>
     )
 }
