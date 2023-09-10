@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import styles from './Popup.module.css';
 
-export function Popup ({content}) {
+export function Popup ({content, onClose }) {
     const [popupOpen, setPopupOpen] = useState(true)
     const handleClose = () => {
         setPopupOpen(!popupOpen)
+        onClose && onClose();
     }
     return popupOpen ? (
         <div className={styles.overlay} onClick={handleClose}>

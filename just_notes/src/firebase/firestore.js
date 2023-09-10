@@ -3,15 +3,15 @@ import { addDoc, collection, doc, getDoc, getDocs,
     query, where,  deleteDoc, updateDoc } from 'firebase/firestore';
 
 export const addNote = async (note) => 
-     await addDoc(collection(db, 'notes'),{... note});
+     await addDoc(collection(db, 'notes'),{...note});
 
-const queryGetNotesByIdUser = (userId, state) => 
-query(collection(db, 'notes'), where('userId', '===', userId), 
+export const queryGetNotesByIdUser = (autorId, state) => 
+query(collection(db, 'notes'), where('autorId', '===', autorId), 
 where('state', '===', state));
 
 export const getNote = (id) => getDoc(doc(db, 'notes', id));
-export const getNotesByIdUser =  (userId, state) => 
-getDocs(queryGetNotesByIdUser(userId, state));
+export const getNotesByIdUser =  (autorId, state) => 
+getDocs(queryGetNotesByIdUser(autorId, state));
 
 export const deleteNote = (id) => deleteDoc(doc(db, 'notes', id));
 export const updateStateNote = (idNote, state) => 
