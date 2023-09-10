@@ -29,11 +29,17 @@ export function Login () {
             console.log('logueada con facebook');
     }
 
+    const capitalizeFirstLetter = (str) => {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+      };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('')
         try{
-            setSuccess(user.email + " " + 'Ingresaste con éxito')
+            const userEmail = user.email;
+            const capitalizedEmail = capitalizeFirstLetter(userEmail.split('@')[0]);
+            setSuccess(capitalizedEmail +  " " + 'ingresaste con éxito')
            setTimeout(() => {
             setSuccess(null);
           }, 3000);
