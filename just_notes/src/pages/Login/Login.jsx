@@ -37,13 +37,14 @@ export function Login () {
         e.preventDefault();
         setError('')
         try{
-            const userEmail = user.email;
-            const capitalizedEmail = capitalizeFirstLetter(userEmail.split('@')[0]);
-            setSuccess(capitalizedEmail +  " " + 'ingresaste con éxito')
+           await login(user.email, user.password)
+           const userEmail = user.email;
+           const capitalizedEmail = capitalizeFirstLetter(userEmail.split('@')[0]);
+           setSuccess(capitalizedEmail +  " " + 'ingresaste con éxito')
            setTimeout(() => {
             setSuccess(null);
           }, 3000);
-          await login(user.email, user.password)
+          
            navigate('/notes')
         }
         catch(error){
@@ -104,6 +105,7 @@ export function Login () {
         </div>
         </div>
        {error && <Popup content={error}></Popup>}
-       {success && <Popup content={success} onClose={() => setSuccess('')}></Popup>}</>
+       {/* {success && <Popup content={success}></Popup>} */}
+       </>
     )
 }
