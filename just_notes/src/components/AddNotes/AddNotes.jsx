@@ -13,6 +13,7 @@ export function AddNotes (props) {
     const saveFunction = (e) => {
         e.preventDefault();
         const noteDescription = noteRef.current.value;
+      
 
         if(noteDescription === ''){
         setMessage('Recuerda que debes agregar información en este campo para guardarlo');
@@ -32,8 +33,10 @@ export function AddNotes (props) {
                 props.setSearchNotes(newNotes);
                 props.setStateNote(false);
                 setSuccessSaved('Guardado exitosamente');
+                console.log('Guardando nota...');
                 noteRef.current.value = '';
             } catch (error) {
+                console.log('Error al guardar nota...');
                 setError('Error al guardar la nota. Por favor, intenta nuevamente.');
             }   
     }
@@ -43,8 +46,15 @@ export function AddNotes (props) {
             noteRef.current.value= '';
     };
 
-    return(
-         <>         
+    const handleClosePopup = () => {
+        setMessage('');
+        setError('');
+        setSuccessSaved('');
+      };
+
+    return(      
+        <>
+        <div className={styles.popupContainer}>
         <form className={styles.form} onSubmit={saveFunction}>
         <textarea id='description' ref={noteRef} className={styles.note}
         name='description' placeholder='Puedes escribir tu nota aquí' ></textarea>
@@ -59,9 +69,11 @@ export function AddNotes (props) {
         click={deleteFunction}>
         </ButtonsSaveAndDelete>
         </form>
-        {error && <Popup content={error}></Popup>}
-        {message && <Popup content={message}></Popup>}
-        {successSaved && <Popup content={successSaved}></Popup>}
+        </div>
+        {error && <Popup content={error} onClose={handleClosePopup}></Popup>}
+        {message && <Popup content={message} onClose={handleClosePopup}></Popup>}
+        {successSaved && <Popup content={successSaved} onClose={handleClosePopup}></Popup>}
         </>
+               
     )
 }
