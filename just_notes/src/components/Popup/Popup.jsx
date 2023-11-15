@@ -4,7 +4,7 @@ import styles from './Popup.module.css';
 export function Popup ({content, onClose }) {
     const [popupOpen, setPopupOpen] = useState(true)
     const handleClose = () => {
-        setPopupOpen(!popupOpen)
+        setPopupOpen(false)
         onClose && onClose();
     }
     return popupOpen ? (

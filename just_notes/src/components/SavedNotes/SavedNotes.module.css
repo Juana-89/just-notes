@@ -5,6 +5,8 @@
     height: 88px;
     border-radius: 8px;
     border: 1px solid #000000;
+    transform: 'translate(-50%, -50%)',
+
 }
 
 .footerNotes{

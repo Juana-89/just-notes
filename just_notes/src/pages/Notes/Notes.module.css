@@ -4,11 +4,12 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    min-width: 60%;
-    max-width: 100%;
+    /* min-width: 60%;
+    max-width: 100%; */
     text-align: center;
     font-size: 16px;
     font-family: 'Inter', sans-serif;
+    z-index: 1;
 }
 
 .containerElements{
@@ -22,11 +23,13 @@
     border-radius: 16px;
     color: #27213B;
     height: 500px;
+    padding: 20px;
+    z-index: 1;
 }
 
 .header{
     float: left;
-    width: 90%;
+    width: 100%;
     margin-left: -12%;
 }
 
