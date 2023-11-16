@@ -48,6 +48,7 @@ export function AddNotes (props) {
         <form className={styles.form} onSubmit={saveFunction}>
         <textarea id='description' ref={noteRef} className={styles.note}
         name='description' placeholder='Puedes escribir tu nota aquí' ></textarea>
+        <div className={styles.buttons}>
         <ButtonsSaveAndDelete
         text='Guardar'
         classBtn={true}
@@ -58,6 +59,7 @@ export function AddNotes (props) {
         classBtn={false}
         click={deleteFunction}>
         </ButtonsSaveAndDelete>
+        </div>
         </form>
         </>  
     )

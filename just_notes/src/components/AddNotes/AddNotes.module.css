@@ -9,3 +9,7 @@
 textarea {
     resize: none;
   }
+
+  .buttons {
+    display: flex;
+  }
