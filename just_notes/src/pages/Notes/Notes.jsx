@@ -28,7 +28,7 @@ export function Notes () {
         <div className={styles.header}>
         <Header />
         <div className={styles.logout}>
-        user:Juana &nbsp; 
+        user:JM &nbsp; 
         <ButtonLogOut text='Cerrar sesión' />
         </div>
         </div>

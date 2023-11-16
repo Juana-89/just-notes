@@ -30,7 +30,7 @@
 .header{
     float: left;
     width: 100%;
-    margin-left: -12%;
+    margin-left: -20%;
 }
 
 .logout{
@@ -39,7 +39,7 @@
 }
 
 .title{
-    margin: 2px 33px 2px;
+    margin: 2px 15px 2px;
     float: left;
     color: #000000;
     font-family: 'Inter';
