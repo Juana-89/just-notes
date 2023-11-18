@@ -3,7 +3,7 @@ import { Header } from '../../components/Header/Header';
 import { ButtonLogOut } from '../../components/ButtonLogOut/LogOut';
 import { AddNotes } from '../../components/AddNotes/AddNotes';
 import { Popup } from '../../components/Popup/Popup';
-import { SavedNotes } from '../../components/SavedNotes/SavedNotes';
+import { ViewNotes } from '../../components/ViewNotes/ViewNotes';
 import styles from './Notes.module.css';
 
 
@@ -45,7 +45,8 @@ export function Notes () {
         />
        <p className={styles.title}>Notas guardadas:</p>
        <div className={styles.viewNotes}>
-       <SavedNotes/>
+       <ViewNotes
+          notes={notes}/>
        </div>
     </div>
     </main>
