@@ -1,18 +1,32 @@
+.sectionNotes{
+    margin-left: -10px;
+    display:flex;
+    gap: 30px;
+}
+
 .container{
-    position: absolute;
+    display:flex;
+    /* position: absolute; */
     background-color: #FFFBFB;
     width: 143px;
     height: 88px;
     border-radius: 8px;
     border: 1px solid #000000;
-    transform: 'translate(-50%, -50%)',
-
+    /* transform: 'translate(-50%, -50%)', */
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.pharagraph{
+    text-align: left;
+    margin-left: 5px;
+    font-size: 12px;
+    flex-direction: row;
 }
 
 .footerNotes{
     margin-right:0;
     box-sizing: border-box;
-    position: absolute;
+    /* position: absolute; */
     width: 143px;
     height: 32px;
     background: #F13765;
