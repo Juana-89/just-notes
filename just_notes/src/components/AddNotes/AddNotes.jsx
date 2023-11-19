@@ -6,7 +6,7 @@ import styles from './AddNotes.module.css';
 export function AddNotes (props) {
     const noteRef = useRef(null);
 
-    const saveFunction = (e) => {
+    const saveFunction = async (e) => {
         e.preventDefault();
         const noteDescription = noteRef.current.value;
 
@@ -20,9 +20,8 @@ export function AddNotes (props) {
             };
 
             try {
-                const response = addNote(note);
-                note.id = response.id;
-                const newNotes = [...props.notes, note];
+                const response = await addNote(note);
+                const newNotes = [...props.notes, response];
                 props.setNotes(newNotes);
                 props.setSearchNotes(newNotes);
                 props.setStateNote(false);

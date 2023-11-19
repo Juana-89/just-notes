@@ -14,11 +14,13 @@ export function Notes () {
     const [searchNotes, setSearchNotes] = useState([]);
     const [message, setMessage] = useState('');
     const [successSaved, setSuccessSaved] = useState('');
+    const [successDeleted, setSuccessDeleted] = useState('');
 
     const handleClosePopup = () => {
       setMessage('');
       setError('');
       setSuccessSaved('');
+      setSuccessDeleted('');
     };
 
     return (
@@ -46,13 +48,15 @@ export function Notes () {
        <p className={styles.title}>Notas guardadas:</p>
        <div className={styles.viewNotes}>
        <ViewNotes
-          notes={notes}/>
+          notes={notes}
+          setSuccessDeleted={setSuccessDeleted}/>
        </div>
     </div>
     </main>
     {error && <Popup content={error} onClose={handleClosePopup}></Popup>}
     {message && <Popup content={message} onClose={handleClosePopup}></Popup>}
     {successSaved && <Popup content={successSaved} onClose={handleClosePopup}></Popup>}
+    {successDeleted && <Popup content={successDeleted} onClose={handleClosePopup}></Popup>}
     </>
     )
 }
