@@ -1,10 +1,23 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { updateNote } from '../../firebase/firestore'
 import { addNote } from '../../firebase/firestore';
 import ButtonsSaveAndDelete from '../../components/ButtonSaveDelete/SaveDelete';
 import styles from './AddNotes.module.css';
 
 export function AddNotes (props) {
     const noteRef = useRef(null);
+    const [isEditing, setIsEditing] = useState(false);
+
+    useEffect(() => {
+        // Update the info in the textarea
+        if (props.editingNote) {
+          noteRef.current.value = props.editingNote.description || '';
+          setIsEditing(true);
+        } else {
+          noteRef.current.value = '';
+          setIsEditing(false);
+        }
+      }, [props.editingNote]);
 
     const saveFunction = async (e) => {
         e.preventDefault();
@@ -20,6 +33,16 @@ export function AddNotes (props) {
             };
 
             try {
+                if (isEditing) {
+                    // This part is for edit the note, prop from Notes.jsx
+                    await updateNote(props.editingNote.id, { description: noteDescription });
+                    const updatedNotes = props.notes.map((note) =>
+                    note.id === props.editingNote.id ? { ...note, description: noteDescription} : note
+                  );
+                    props.setNotes(updatedNotes);
+                    props.setMessage('Editado exitosamente')
+                    
+                  } else {
                 const response = await addNote(note);
                 const newNotes = [...props.notes, response];
                 props.setNotes(newNotes);
@@ -27,8 +50,10 @@ export function AddNotes (props) {
                 props.setStateNote(false);
                 props.setSuccessSaved('Guardado exitosamente');
                 console.log('Guardando nota...');
-                noteRef.current.value = '';
-            } catch (error) {
+                
+            } 
+            noteRef.current.value = '';
+        }catch (error) {
                 console.log('Error al guardar nota...');
                 props.setError('Error al guardar la nota. Por favor, intenta nuevamente.');
             }   
@@ -49,7 +74,7 @@ export function AddNotes (props) {
         name='description' placeholder='Puedes escribir tu nota aquí' ></textarea>
         <div className={styles.buttons}>
         <ButtonsSaveAndDelete
-        text='Guardar'
+        text={isEditing ? 'Editar' : 'Guardar'}
         classBtn={true}
         click={saveFunction}>
         </ButtonsSaveAndDelete>
