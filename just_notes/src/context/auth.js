@@ -1,11 +1,12 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, 
     signInWithEmailAndPassword,
     GoogleAuthProvider, sendPasswordResetEmail,
     FacebookAuthProvider, signInWithPopup,
     onAuthStateChanged, updateProfile, signOut } from "firebase/auth";
 import { collection } from "firebase/firestore";
-import { auth, db } from "../firebase/config";
+import { auth } from "../firebase/config";
 
 const authContext = createContext();
 
@@ -18,21 +19,20 @@ export const useAuth = () => {
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   const login = (email, password) => signInWithEmailAndPassword(auth, email, password);
   const forgot = (email) => {auth.languageCode='es'; return sendPasswordResetEmail(auth, email)};
-  const register = (displayName, email, password) => createUserWithEmailAndPassword (auth, email, password)
-  .then((userCredentials)=>{
-    const user = userCredentials.user;
-    user.updateProfile({
-      displayName: displayName
-    })
-  })
+  const register = ( email, password) => createUserWithEmailAndPassword (auth, email, password)
+  navigate('/login')
+
   const signInGoogle = () => {
       const provider = new GoogleAuthProvider();
       return signInWithPopup(auth, provider)
       .then((result) => { 
         console.log(result)
+        navigate('/notes')
+
         }).catch((error) => {
           console.log(error)
         })
@@ -43,6 +43,7 @@ export function AuthProvider({ children }) {
       return signInWithPopup(auth, provider)
       .then((result) => { 
         console.log(result)
+        navigate('/notes')
         }).catch((error) => {
           console.log(error)
         })

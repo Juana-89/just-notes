@@ -9,6 +9,7 @@ import styles from './Register.module.css';
 export function Register () {
     const navigate = useNavigate();
     const { register } = useAuth();
+    const [success, setSuccess] = useState('');
     const [error, setError] = useState('');
     const [user, setUser] = useState({
         displayName:'',
@@ -26,7 +27,7 @@ export function Register () {
             setError('')
             try{
                await register( user.displayName, user.email, user.password)
-               alert('te registraste con éxito')
+               setSuccess('Te registraste con éxito')
             }
             catch(error){
                 switch(error.message){
@@ -75,6 +76,7 @@ export function Register () {
         <p className={styles.pClick}> <a href='#' className={styles.aLogin} onClick={login}>Clickea aquí para regresar a loguearte</a></p>
         </div>
         </div>
+         {success && <Popup content={success}></Popup>}
          {error && <Popup content={error}></Popup>}</>
     )
 }
