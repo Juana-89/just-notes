@@ -105,7 +105,7 @@ export function Login () {
         </div>
         </div>
        {error && <Popup content={error}></Popup>}
-       {/* {success && <Popup content={success}></Popup>} */}
+       {success && <Popup content={success}></Popup>}
        </>
     )
 }

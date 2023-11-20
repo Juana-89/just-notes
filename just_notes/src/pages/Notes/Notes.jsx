@@ -24,7 +24,6 @@ export function Notes () {
       setSuccessSaved('');
       setSuccessDeleted('');
       setEditingNote(null);
-
     };
 
     return (
