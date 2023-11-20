@@ -4,8 +4,7 @@ import { createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     GoogleAuthProvider, sendPasswordResetEmail,
     FacebookAuthProvider, signInWithPopup,
-    onAuthStateChanged, updateProfile, signOut } from "firebase/auth";
-import { collection } from "firebase/firestore";
+    onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../firebase/config";
 
 const authContext = createContext();
@@ -23,8 +22,10 @@ export function AuthProvider({ children }) {
 
   const login = (email, password) => signInWithEmailAndPassword(auth, email, password);
   const forgot = (email) => {auth.languageCode='es'; return sendPasswordResetEmail(auth, email)};
-  const register = ( email, password) => createUserWithEmailAndPassword (auth, email, password)
-  navigate('/login')
+  const register = ( email, password) => {
+    createUserWithEmailAndPassword (auth, email, password)
+    navigate('/login')
+  }
 
   const signInGoogle = () => {
       const provider = new GoogleAuthProvider();
@@ -59,9 +60,7 @@ export function AuthProvider({ children }) {
 
 useEffect(() => {
   const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-    console.log({ currentUser });
     setUser(currentUser);
-  
   });
   return () => unsubscribe();
 }, []);
