@@ -15,12 +15,15 @@ export function Notes () {
     const [message, setMessage] = useState('');
     const [successSaved, setSuccessSaved] = useState('');
     const [successDeleted, setSuccessDeleted] = useState('');
+    const [editingNote, setEditingNote] = useState(null);
 
     const handleClosePopup = () => {
       setMessage('');
       setError('');
       setSuccessSaved('');
       setSuccessDeleted('');
+      setEditingNote(null);
+
     };
 
     return (
@@ -43,13 +46,16 @@ export function Notes () {
           setError={setError}
           setMessage={setMessage}
           setSuccessSaved={setSuccessSaved}
+          editingNote={editingNote}
           messageProp="Probando clic del botón"
         />
        <p className={styles.title}>Notas guardadas:</p>
        <div className={styles.viewNotes}>
        <ViewNotes
           notes={notes}
-          setSuccessDeleted={setSuccessDeleted}/>
+          setSuccessDeleted={setSuccessDeleted}
+          setEditingNote={setEditingNote}
+          />
        </div>
     </div>
     </main>
