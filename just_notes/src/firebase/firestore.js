@@ -18,8 +18,5 @@ getDocs(queryGetNotesByIdUser(autorId, state));
 
 export const deleteNote = (id) => deleteDoc(doc(db, 'notes', id));
 
-// export const updateStateNote = (idNote, state) => 
-// updateDoc(doc(db, 'notes', idNote), {state:state});
-
 export const updateNote = (id, note) => 
 updateDoc(doc(db, 'notes', id), {description:note.description});
