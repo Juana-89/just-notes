@@ -27,11 +27,6 @@ export function AuthProvider({ children }) {
     user.updateProfile({
       displayName: displayName
     })
-  //   .then((e) => {
-  //     alert('registrado')
-  //   }).catch((error) => {
-  //     alert(error.message);
-  // })
   })
   const signInGoogle = () => {
       const provider = new GoogleAuthProvider();

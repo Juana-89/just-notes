@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { updateNote } from '../../firebase/firestore'
 import { Header } from '../../components/Header/Header';
 import { ButtonLogOut } from '../../components/ButtonLogOut/LogOut';
 import { AddNotes } from '../../components/AddNotes/AddNotes';
