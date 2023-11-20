@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { ProtectRouter } from '../context/protectPath';
 import { Home } from '../pages/Home/Home';
 import { Login } from '../pages/Login/Login';
 import { Register } from '../pages/Register/Register';
@@ -43,11 +44,11 @@ function App() {
       <Routes>
       <Route path ='/' element={<Home/>} />
       <Route path ='/login' element={<Login/>} />
-      <Route path ='/view' element={<ViewNotes/>} />
-      <Route path ='/addnotes' element={<AddNotes openPopup={openPopup} />} />          
+      <Route path ='/view' element={<ProtectRouter><ViewNotes/></ProtectRouter>} />
+      <Route path ='/addnotes' element={<ProtectRouter><AddNotes openPopup={openPopup} /></ProtectRouter>  } />  
       <Route path ='/register' element={<Register/>} />
       <Route path ='/forgot' element={<Forgot/>} />
-      <Route path ='/notes' element={<Notes/>} />
+      <Route path ='/notes' element={<ProtectRouter><Notes/></ProtectRouter>} />
       {isPopupOpen && <Popup content={popupContent} onClose={closePopup} />}
       </Routes>
       </AuthProvider>
